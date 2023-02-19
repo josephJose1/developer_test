@@ -61,14 +61,17 @@ createdb QuickstartTestDB --owner=s1_charmiliun;
 # makemigrations and migrate, also create superuser
 python3 manage.py makemigrations
 
-3. Run the migrations:
+1. Run the migrations:
 
     ```shell
     python manage.py migrate
     ```
-4. Run the local server:
+2. Run the local server:
 
     ```shell
     python manage.py runserver
     ```
-python manage.py createsuperuser 
+3. If you'd like to access /admin, you'll need a Django superuser. Navigate to the Azure Portal for the App Service, select SSH, and run this command:
+    ```shell
+    python manage.py createsuperuser 
+    ```
