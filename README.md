@@ -1,7 +1,16 @@
 # developer_test
 ### Local development
 
-python3 -m venv env_test
+1. create virtual env
+    ```shell
+    python3 -m venv env_test
+    ```
+2. activate
+```shell
+    source env_test/bin/activate
+    ```
+
+
 source env_test/bin/activate
 
 ## Requirements
