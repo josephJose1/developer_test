@@ -6,7 +6,7 @@
     python3 -m venv env_test
     ```
 2. activate
-```shell
+    ```shell
     source env_test/bin/activate
     ```
 
