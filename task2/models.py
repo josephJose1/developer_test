@@ -7,7 +7,7 @@ class Project(models.Model):
     tipo = models.CharField(max_length=10)
     region = models.CharField(max_length=100)
     tipologia = models.CharField(max_length=10)
-    titular = models.CharField(max_length=100)
+    titular = models.CharField(max_length=200)
     inversion = models.CharField(max_length=10)
     fechapresentacion = models.DateField()
     estado = models.CharField(max_length=100)

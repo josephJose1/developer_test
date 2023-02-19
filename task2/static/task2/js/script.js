@@ -1,5 +1,31 @@
 var behavior = false
 var nColumn = 0
+function changeBtn() {
+  //let x = document.forms["myForm"]["myOptions"];
+  
+  var slct = document.getElementById('myBtn'); 
+  var spin = document.getElementById('spinner'); 
+  var message = document.getElementById('message'); 
+  console.log(slct, spin, message);
+
+  message.textContent = 'Loading... ';
+  spin.className= 'spinner-border spinner-border-sm';
+  // if (cnt === 0) {
+  //   alert("No members selected!!");
+  //   return false;
+  // }
+  // for (let d = 0;d<cnt;d++){
+  //     console.log(para.childNodes[d].id);
+  //     myNode = document.createElement('option');
+  //     myNode.value = para.childNodes[d].id;
+  //     myNode.setAttribute('selected','');
+  //     slct.appendChild(myNode);
+  // }
+  // alert("Check console output!!");
+  // // const input = prompt("What's your name?");
+  // // alert(`Your name is ${input}`);
+  // return true;
+}
 
 function sortTable(n) {
   console.log("WE ARE HERE!!")
@@ -187,3 +213,4 @@ function myVerifier(n){
     behavior = false
   }
 }
+

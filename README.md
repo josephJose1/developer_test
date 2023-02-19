@@ -71,7 +71,7 @@ python3 manage.py makemigrations
     ```shell
     python manage.py runserver
     ```
-3. If you'd like to access /admin, you'll need a Django superuser. Navigate to the Azure Portal for the App Service, select SSH, and run this command:
+3. If you'd like to access /admin, you'll need a Django superuser. Navigate to the page:
     ```shell
     python manage.py createsuperuser 
     ```

@@ -22,19 +22,44 @@
     </div>
     <br>
     <!-- START -->
-    <div class="d-flex justify-content-center">>
-        <div class="spinner-border text-info"></div>
+    <div class="d-flex justify-content-center">
+        <!-- <div class="spinner-border text-info"></div>
         <div class="spinner-border text-success" role="status">
             <span class="visually-hidden">Loading...</span>
-        <!--Insert_cards code-->
+       Insert_cards code-->
+         <!--</div> -->
+        
+        <div class="contain mx-5">
+            <div class="card bg-secondary text-white">
+                <div class="card-body">
+                    url <kbd><a href="https://seia.sea.gob.cl/busqueda/buscarProyectoAction.php">Servicio
+                        de Evaluación Ambiental</a></kbd>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 class="text-light my-4 mx-2">Get Data</h5>
+                </div>
+                <div class="col">
+                    <form action="" name="myForm" id="myForm" method="post" onsubmit="changeBtn()">
+                        {% csrf_token %}
+                        <button type="submit" id='myBtn' class="btn btn-primary rounded-pill my-3">
+                            <span id="spinner" class=""></span>
+                            <span id="message"> Start >> </span> 
+                            <!-- .visually-hidden -->
+                        </button>
+                    </form>
+                </div>
+              </div>
+            
+
         </div>
     </div>
 
         {% if info%}
             <!-- data table -->
             {% include 'task2/data.html'%}
-         {% elif selected_file.format %}
-            <h2>START SCRAPPING?</h2>
+
         {% endif %}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center step-links mt-2">
@@ -61,6 +86,7 @@
             </ul>
         </nav>
     <script src="{% static 'task2/js/script.js' %}"></script>
+
     {% endblock %}
     <!-- END -->
 </body>

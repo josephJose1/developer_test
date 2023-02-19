@@ -30,3 +30,6 @@ def count_table(cantidadperpage):
     cant = Project.objects.count()
     return int(cant/cantidadperpage)
         
+def get_data():
+    return Project.objects.all().order_by('noid').values()
+
