@@ -57,14 +57,14 @@ def main_process():
     page = requests.get(base_URL)
     start_page = count_table(cantidadperpage)+1 #uncomment
     print("page to start", start_page)
-    start_page = 3
+    # start_page = 3
     if page.status_code == 200:
         soup = BeautifulSoup(page.content, "html.parser")
         results = soup.find("div",id="info_resultado")
         cuantity=get_cuantity(results.prettify())
         if cuantity is not None:
             cuantity = int(cuantity)
-            for table in range(start_page,4):#change 2 _> cuantity
+            for table in range(start_page,cuantity):#change 2 _> cuantity
                 query_params = f"?_paginador_fila_actual={table}"
                 page = requests.get(base_URL + query_params)
                 if page.status_code == 200:

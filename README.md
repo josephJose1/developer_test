@@ -20,7 +20,6 @@ The [requirements.txt](./requirements.txt) has the following packages:
     ```shell
     pip install -r requirements.txt
     ```
-4. Create an `.env` file using `.env.sample` as a guide. Set the value of `DBNAME` to the name of an existing database in your local PostgreSQL instance. Set the values of `DBHOST`, `DBUSER`, and `DBPASS` as appropriate for your local PostgreSQL instance.
 
 # postgres settings
 1. set user in postgres , open new terminal
