@@ -1,0 +1,72 @@
+
+.our_repo_h1 {
+    font-size: 80px;
+    margin: 2px 0 -20px 0 !important;
+}
+.our_repo_h3{
+    margin-top:35px;
+}
+.our_repo_h1,
+.our_repo_h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.background{
+    background-color:#282A35;
+    opacity:0.96;
+    margin:auto;
+    padding:165px 20px;
+}/*custom*/
+#bgcodeimg2{
+    background-color:#F3ECEA;color:white;
+    background: #282A35 url("img/priscilla-du-preez-XkKCui44iM0-unsplash.921aa0c0.jpg") no-repeat fixed center;
+}
+.our_repo{
+    font-size:65px;
+    font-weight:700;
+}/*custom*/
+
+.ws-btn, .tut-button{
+    margin-top:15px;
+    margin-bottom:18px;
+    font-size:22px;
+    width:300px;
+    padding: 11px 18px;
+}
+.w3-center {
+    text-align: center !important;
+  }
+.tut-button {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 18px;
+    margin: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+    display: block;
+    /* width: 200px; */
+    border-radius: 25px;
+}
+.ws-btn {
+
+    font-family: 'Source Sans Pro', sans-serif;
+    border: none;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+.w3-hide-medium .w3-hide-small{
+    max-width:100%;
+    margin:auto;
+}
+
+.tut-button:hover {
+    background-color: #059862 !important;
+    color: white !important;
+  }
+a:active, a:hover {
+    outline-width: 0;
+  }

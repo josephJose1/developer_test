@@ -1,0 +1,81 @@
+{% load static %}
+<p class="text-align-center ml-3 mb-3">
+    <span class="badge rounded-pill bg-secondary">
+        {{info.paginator.count}} records 
+    </span>
+    <span class="current badge rounded-pill bg-success">
+        Page {{ info.number }} of {{ info.paginator.num_pages }}.
+    </span>
+</p>
+
+<div class="container-fluid padding table-responsive table-sm">
+    <table class="table mb-0 table-hover bg-light" id="myTable"> <!--TABLE-->
+    <!-- <caption style="caption-side:bottom">Monthly savings</caption> -->
+    <thead class="table-dark">
+        <tr>
+            {% if val %}
+                <th onclick="sortTable(1)">noid</th>
+                {% for words in val %}
+                    {% if words != "noid" %}
+                        <th  onclick="sortTable('{{forloop.counter}}')">
+                                {{words|truncatechars:10}}
+                        </th>                    
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </tr>
+    </thead>
+    {% for data in info%}
+    <tbody>
+        <tr>
+            <td><small>{{data.noid}}</small></td>
+            <td><small>{{data.nombre}}</small></td>
+            <td><small>{{data.tipo}}</small></td>
+            <td><small>{{data.region}}</small></td>
+            <td><small>{{data.tipologia}}</small></td>
+            <td><small>{{data.titular}}</small></td>
+            <td><small>{{data.inversion}}</small></td>
+            <td><small>{{data.fechapresentacion}}</small></td>
+            <td><small>{{data.estado}}</small></td>
+            <td><small>{{data.mapa}}</small></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+    <tfoot id="mytfoot">
+        {% if typeList %}
+            <tr>
+            {% for type in typeList%}
+                <td hidden>{{type}}</td>
+            {% endfor %}                
+            </tr>
+        {% endif %}
+    </tfoot>
+    
+    </table>
+</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center step-links mt-2">
+        {% if info.has_previous %}             
+        <li class="page-item">
+            <a class="page-link" href="?page={{ info.previous_page_number }}">previous</a>
+        </li>
+        {% endif %}
+
+        {% for i in info.adjusted_elided_pages %}
+            {% if info.number == i %}
+            <li class="page-item active slecu">
+                <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
+            </li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if info.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ info.next_page_number }}">next</a>
+        </li>
+        {% endif %}
+    </ul>
+   
+</nav>
+

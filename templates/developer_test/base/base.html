@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'task1/bootstrap-5_0_2/css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'task1/bootstrap-5_0_2/css/bootstrap.min.css.map' %}"> -->
+    <title>
+        {% block title %}
+            home
+        {% endblock %}
+    </title>
+</head>
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'task1:home' %}">
+            <i class="fa fa-book" aria-hidden="true"> </i> <strong>Developer Test</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'task1:task1' %}">Task1 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'task2:task2' %}">Task2 </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  Groups
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action - see Groups</a>
+                  <a class="dropdown-item" href="#">Another action - add Groups</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+            <form class="d-flex" method="get" action="#">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="id_q" name="q" required>
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+    {% block content %}
+        
+    {% endblock %}
+
+    <hr class="my-4">
+    <!--<script src="{% static '/jquery.slim.min.js' %}" ></script>-->
+    <div class="container-fluid text-light bg-dark myfooter">
+     <footer class="container" >
+      <nav class="row">
+        <div class="col-3">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <strong>OUR|Repo</strong>
+        </div>
+        <div class="col-3">
+          <p>Author: Joseph González<br>
+          <a href="mailto:joseph.gonzalez4@utp.ac.pa">joseph.gonzalez4@utp.ac.pa</a></p>
+        </div>
+        <div class="col-3">
+          <a href="#"><strong class="text-success"><i class="fa fa-cogs" aria-hidden="true"> </i>
+            API</strong></a>
+        </div>
+        <div class="col-3">
+          Social media
+        </div>
+      </nav>
+    </footer>       
+    </div>
+    <script src="{% static 'task1/bootstrap-5_0_2/js/bootstrap.bundle.js' %}" ></script>
+    
+    <script src="https://kit.fontawesome.com/6a55d044d8.js" crossorigin="anonymous"></script>
+</body>
+</html>

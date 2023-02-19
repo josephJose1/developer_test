@@ -1,0 +1,16 @@
+{% extends 'developer_test/base/base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'task1/style/style.css' %}">
+<div class=" w3-center" id="bgcodeimg2">
+    <div class="background container-fluid">
+        <h1 class="our_repo_h1">Test Spaces</h1>
+        <h3 class="our_repo_h3" >Check your OUR|Test Spaces.</h3><br>
+        <a href="{% url 'task1:home' %}" class="ws-btn tut-button" >Get Started</a><br>
+        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+<div class="card wiget" style="width: 18rem;">
+    <img class="card-img-top" src="{% static 'task1/images/company.png' %}" alt="Card image cap" width="80%" height="80%">
+    <div class="card-body">
+
+      <h5 class="card-title">{{company.0|title}}</h5>
+      <p class="card-text">{{company.1|lower}}</p>
+      <div class="row padding">
+        <div class="col-lg-6">
+            User
+        </div>
+        <div class="col-lg-6">
+            1
+        </div>
+      </div>
+      <div class="row padding">
+        <div class="col-lg-6">
+            <strong>Datasets</strong>
+        </div>
+        <div class="col-lg-6">
+            <strong>{{location|default:"N"}}</strong>
+        </div>
+      </div>
+    </div>
+</div>
