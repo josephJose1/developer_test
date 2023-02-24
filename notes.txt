@@ -1,4 +1,5 @@
 
+python3 -m pip install --upgrade pip
 python3 -m venv env_test
 source env_test/bin/activate
 python3 -m pip install Django==4
@@ -6,13 +7,7 @@ django-admin startproject coresite .
 
 python3 manage.py startapp task2
 
-'ENGINE': 'django.db.backends.postgresql',
-'HOST':'172.25.0.20',
-'USER':'s0_zuikaku',
-'PASSWORD':'L}FmJT3CU)MpZg',
-'TIME-ZONE':'TRUE',
-'NAME': 's0_shoukaku',
-'PORT': '5432',
+####POSTGRESQL IN variables
 
 python3 -m pip install psycopg2-binary==2.9.3
 

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os 
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 print(BASE_DIR)
@@ -79,12 +80,12 @@ WSGI_APPLICATION = 'coresite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST':'localhost',
-        'USER':'s1_charmiliun',
-        'PASSWORD':'GDRT$%&sdZ', 
-        'TIME-ZONE':'TRUE', 
-        'NAME': 'QuickstartTestDB', 
-        'PORT': 5432
+        'HOST':config('HOST'),
+        'USER':config('MyUSER'),
+        'PASSWORD':config('PASSWORD'), 
+        'TIME-ZONE':config('TIME-ZONE'), 
+        'NAME': config('NAME'), 
+        'PORT': config('PORT')
     }
 }
 
