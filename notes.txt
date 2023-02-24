@@ -61,3 +61,6 @@ password = Yusdb834%&
 
 
 #take code from organization views and template same_copy_custom.html
+
+if you change something in web repo #update local repo using
+git pull
