@@ -13,11 +13,11 @@ media
 env_folder/
 env_folder
 
-env-test/
+env_test/
 # Environments 
 .env 
 .venv 
-env-test/ 
+env_test/ 
 venv/ 
 ENV/ 
 env.bak/ 
