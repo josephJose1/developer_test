@@ -1,0 +1,5 @@
+{% for city in cities %}
+    <option value="{{city.id}}">{{city.name}}</option>
+{% endfor %}
+
+<select hx-get="load-cities" hx-target="#id_city"></select>
