@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'task1',
     'task2',
     'task3',#cascade HTMX
+    'task4',#calendar
 ]
 
 MIDDLEWARE = [

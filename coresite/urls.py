@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('task1.urls')),
     path('task2/', include('task2.urls')),
     path('task3/', include('task3.urls')),
+    path('task4/', include('task4.urls')),
 ]

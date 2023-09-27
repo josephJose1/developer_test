@@ -59,3 +59,6 @@ password = Yusdb834%&
 
 if you change something in web repo #update local repo using
 git pull
+
+#in case of fire
+sudo service postgresql start

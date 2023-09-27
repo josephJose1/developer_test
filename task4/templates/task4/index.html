@@ -1,0 +1,151 @@
+{% extends 'developer_test/base/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        Task4 (Listado de Salones Reservados)
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="container-fluid padding pt-3">
+        <nav aria-label="breadcrumb"></nav>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'task1:home' %}">Home</a></li>
+            <li class="breadcrumb-item active">Task4</li>         
+          </ul> 
+        </nav>
+    </div>
+    <br>
+    <!-- START -->
+    <div class="container-fluid padding">
+        <div class="row text-left padding">
+            <div class="col-lg-3 mb-3">
+                <!--THE CODE GOES HERE!!! -->
+                {% comment %}
+                {% include 'task1/companywiget.html' with cuantity=selected_dataset|length%}
+                {% endcomment %}
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-light bg-dark rounded-lg">
+                    <form class="form-inline">
+                      <input class="form-control mr-sm-2" type="search" id="myInput" placeholder="Search {{info}}" onkeyup="myFunction()" aria-label="Search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <form action="/action_page.php" class="form-inline">
+                        <label for="order"><strong>Order by:</strong></label>
+                        <select id="order" name="order">
+                          <option value="name_ascending">Name ascending</option>
+                        </select>
+                        <!-- <input type="submit"> -->
+                      </form>
+                </nav>
+                <!--Insert_cards code-->
+                {% if object_list %}
+                <div class="container-fluid padding">
+                    <div class="row text-left padding">
+                    <!-- <div class="col-lg-11 row div_prod"> -->
+                    <div class="col-lg-12 row div_prod" id="myDiv">
+                        {% for item in object_list %}  
+                        <div class="col-md-3">
+                            <div class="card">
+                            <!-- <img src="https://www.iconpacks.net/icons/1/free-building-icon-1062-thumb.png" class="card-img-top" alt="..."> -->
+                            <div class="card-body">
+                                <h5>{{item.reserva_salon|title }}</h5>
+                                <p class="card-text">{{item.description}}</p>
+                                <p><strong>{{item.start | date:'Y-m-d H:M:S'}} <br> {{item.end | date:'c'}}</strong></p>
+                            </div>
+                            <div class="card-footer">
+
+                            </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center step-links mt-2">
+                        {% if list_info.has_previous %}             
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ list_info.previous_page_number }}">previous</a>
+                        </li>
+                        {% endif %}
+                        {% for i in list_info.paginator.page_range %}
+                            {% if list_info.number == i %}
+                            <!-- <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li> -->
+                            <li class="page-item active slecu">
+                                <a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a>
+                            </li>
+                            {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if list_info.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ list_info.next_page_number }}">next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+</div>
+<div id="calendar">
+
+</div>
+    <!-- END -->
+    <script src="{% static 'task4/js/calendar/index.global.js' %}"></script>
+    <script src="{% static 'task4/js/calendar/index.global.min.js' %}"></script>
+    <script src="{% static 'task4/js/mycalendar.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            // initialView: 'dayGridMonth',
+            headerToolbar: {
+                // left: 'prev,next today',
+                center: 'title',
+                // right: 'dayGridMonth,timeGridWeek,listWeek'
+            },
+            events:[
+                {% for reserva in object_list %}
+                    { 
+                        id: '{{reserva.id}}',
+                        title: '{{reserva.reserva_salon}}',
+                        start: "{{reserva.start | date:'c'}}",
+                        end: "{{reserva.end | date:'c'}}",
+                    },
+                {% endfor %}
+
+            ],
+            navLinks: true,
+            navLinkDayClick: function(date, jsEvent) {
+                console.log('day', date.toISOString());
+                console.log('coords', jsEvent.pageX, jsEvent.pageY);
+            },
+            right: 'dayGridWeek,dayGridDay', // user can switch between the two
+            dayMaxEventRows: true, // for all non-TimeGrid views
+            views: {
+                timeGrid: {
+                dayMaxEventRows: 6 // adjust to 6 only for timeGridWeek/timeGridDay
+                }
+            }
+
+        });
+        calendar.render();
+    });
+    </script>
+    {% endblock %}
+
+
+
+
+
+</body>
+</html>
