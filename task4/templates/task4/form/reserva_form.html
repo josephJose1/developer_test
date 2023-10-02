@@ -1,0 +1,54 @@
+{% extends 'developer_test/base/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+    Formulario
+    {% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#myModal">
+        Open modal
+    </button>
+  
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+        <div class="modal-content">
+    
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h4 class="modal-title">Formulario de Reserva</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+    
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form  method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+    
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+    
+        </div>
+        </div>
+    </div>
+    <script>
+        var x = document.getElementById("id_start");
+        // set value
+        // x.valueAsDate=""
+    </script>
+  {% endblock %}
+</body>
+</html>
